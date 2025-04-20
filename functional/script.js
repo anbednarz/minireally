@@ -38,11 +38,25 @@ async function loadProducts() {
         console.log('Ответ получен:', response.status, response.statusText);
         
         if (!response.ok) {
-            throw new Error(`Ошибка при загрузке товаров: ${response.status} ${response.statusText}`);
+            // Пытаемся получить детали ошибки
+            let errorDetails = '';
+            try {
+                const errorData = await response.json();
+                errorDetails = errorData.details || errorData.error || '';
+            } catch (e) {
+                // Если не удалось получить детали, используем статус
+                errorDetails = `${response.status} ${response.statusText}`;
+            }
+            
+            throw new Error(`Ошибка при загрузке товаров: ${errorDetails}`);
         }
         
         const products = await response.json();
         console.log('Товары загружены:', products);
+        
+        if (!Array.isArray(products)) {
+            throw new Error('Получены некорректные данные: не массив');
+        }
         
         displayProducts(products);
     } catch (error) {
@@ -50,7 +64,12 @@ async function loadProducts() {
         // Показываем сообщение об ошибке пользователю
         const imagesGrid = document.querySelector('.images-grid');
         if (imagesGrid) {
-            imagesGrid.innerHTML = `<p class="error-message">Ошибка при загрузке товаров: ${error.message}</p>`;
+            imagesGrid.innerHTML = `
+                <div class="error-container">
+                    <p class="error-message">Ошибка при загрузке товаров: ${error.message}</p>
+                    <button onclick="loadProducts()" class="retry-button">Повторить</button>
+                </div>
+            `;
         }
     }
 }

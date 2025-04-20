@@ -17,7 +17,11 @@ const pool = mysql.createPool({
   port: process.env.MYSQL_ADDON_PORT || 3306,
   waitForConnections: true,
   connectionLimit: 10,
-  queueLimit: 0
+  queueLimit: 0,
+  // Добавляем дополнительные параметры для решения проблем с подключением
+  connectTimeout: 10000,
+  enableKeepAlive: true,
+  keepAliveInitialDelay: 0
 });
 
 // Проверка подключения
