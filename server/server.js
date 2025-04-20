@@ -19,6 +19,11 @@ app.use(express.json());
 // Serve static files from the root directory
 app.use(express.static(path.join(__dirname, '..')));
 
+// Тестовый маршрут для проверки API
+app.get('/api/test', (req, res) => {
+  res.json({ message: 'API работает!' });
+});
+
 // API Routes
 app.use('/api/products', productsRouter);
 
