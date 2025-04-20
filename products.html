@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Товары - mini really</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jsrsasign/10.5.27/jsrsasign-all-min.js"></script>
+    <link rel="stylesheet" href="functional/styles.css">
+    <link rel="stylesheet" href="products/stylesProducts.css">
+    <link rel="stylesheet" href="registration/stylesRegistration.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo">mini really</div>
+            <nav class="header-nav">
+                <button id="header-register-btn" class="nav-button">Регистрация</button>
+                <div id="user-info" style="display: none;">
+                    <p id="welcome-message"></p>
+                </div>
+                <button id="header-logout-btn" class="nav-button">Выход</button>
+            </nav>
+        </div>
+    </header>
+
+    <div class="products-container">
+        <div class="navigation-container">
+            <button id="returnToMain" class="nav-buttons">← на главную</button>
+        </div>
+        <h1>Наши товары</h1>
+        <div class="products-table-container">
+            <table id="products-table">
+                <thead>
+                    <tr>
+                        <th>Изображение</th>
+                        <th>Название</th>
+                        <th>Вселенная</th>
+                        <th>Описание</th>
+                        <th>Цена</th>
+                    </tr>
+                </thead>
+                <tbody id="products-table-body">
+                    <!-- Данные будут добавлены через JavaScript -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Auth Modal -->
+    <div id="auth-modal" class="auth-modal hidden">
+        <div class="auth-modal-content">
+            <span class="auth-close-button">&times;</span>
+
+            <div id="auth-forms">
+                <div id="auth-choices" class="auth-page active">
+                    <h1 id="auth-h1">Вход на сайт</h1>
+                    <div class="auth-buttons">
+                        <button id="modal-register-btn" class="auth-toggle-btn">Регистрация</button>
+                        <button id="modal-login-btn" class="auth-toggle-btn">Вход</button>
+                    </div>
+                </div>
+
+                <div id="register-form" class="auth-page">
+                    <h1 id="register-h1">Регистрация</h1>
+                    <form class="auth-form">
+                        <div class="form-group">
+                            <input type="text" id="reg-username" placeholder="Имя пользователя" required maxlength="32">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" id="reg-password" placeholder="Пароль" required maxlength="32">
+                            <label class="show-password">
+                                <input type="checkbox" id="reg-show-password">
+                                <span>Показать пароль</span>
+                            </label>
+                        </div>
+                        <div id="reg-error" class="error-message"></div>
+                        <button type="submit" class="auth-submit-btn">Зарегистрироваться</button>
+                    </form>
+                    <button class="auth-back-btn">← Назад</button>
+                </div>
+
+                <div id="login-form" class="auth-page">
+                    <h1 id="login-h1">Вход</h1>
+                    <form class="auth-form">
+                        <div class="form-group">
+                            <input type="text" id="login-username" placeholder="Имя пользователя" required maxlength="32">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" id="login-password" placeholder="Пароль" required maxlength="32">
+                            <label class="show-password">
+                                <input type="checkbox" id="login-show-password">
+                                <span>Показать пароль</span>
+                            </label>
+                        </div>
+                        <div id="login-error" class="error-message"></div>
+                        <button type="submit" class="auth-submit-btn">Войти</button>
+                    </form>
+                    <button class="auth-back-btn">← Назад</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="functional/script.js"></script>
+    <script src="products/scriptProducts.js"></script>
+    <script src="registration/scriptRegistration.js"></script>
+</body>
+</html> 

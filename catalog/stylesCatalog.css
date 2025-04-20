@@ -1,0 +1,322 @@
+/* Стили контейнера каталога */
+.catalog-container {
+    color: #fcf6ed;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    min-height: calc(100vh - 200px);
+    margin-top: 80px;
+}
+
+.catalog-container h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #F29F05;
+}
+
+/* Стили панели навигации */
+.navigation-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+#returnToMain {
+    background: none;
+    border: 2px solid #F29F05;
+    color: #F29F05;
+    padding: 0.5rem 1.5rem;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-family: 'Gothic №60';
+    font-size: 1rem;
+}
+
+#returnToMain:hover {
+    background: #F29F05;
+    color: #242424;
+    transform: translateY(-2px);
+}
+
+#backButton {
+    background: none;
+    border: 2px solid #84A98C;
+    color: #84A98C;
+    padding: 0.5rem 1.5rem;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-family: 'Gothic №60';
+    font-size: 1rem;
+}
+
+#backButton:hover {
+    background: #84A98C;
+    color: #242424;
+    transform: translateY(-2px);
+}
+
+#nextButton {
+    background: none;
+    border: 2px solid #84A98C;
+    color: #84A98C;
+    padding: 0.5rem 1.5rem;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-family: 'Gothic №60';
+    font-size: 1rem;
+}
+
+#nextButton:hover {
+    background: #84A98C;
+    color: #242424;
+    transform: translateY(-2px);
+}
+
+
+.nav-buttons {
+    background: none;
+    border: 2px solid #F29F05;
+    color: #F29F05;
+    padding: 0.5rem 1.5rem;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-family: 'Gothic №60';
+    font-size: 1rem;
+}
+
+.nav-buttons:hover {
+    background: #F29F05;
+    color: #242424;
+    transform: translateY(-2px);
+}
+
+/* Стили для неактивных кнопок */
+.nav-buttons:disabled {
+    background-color: #cccccc !important;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Сетка для изображений */
+.images-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px 0;
+}
+
+/* Стили изображений в сетке */
+.image-item {
+    position: relative;
+    cursor: pointer;
+    border-radius: 8px;
+    overflow: hidden;
+    aspect-ratio: 1;
+    transition: transform 0.3s;
+}
+
+.image-item:hover {
+    transform: scale(1.05);
+}
+
+.image-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* Эффект увеличения при наведении */
+.images-grid img:hover {
+    transform: scale(1.03);
+}
+
+/* Стили всплывающего окна */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal.hidden {
+    display: none;
+}
+
+.modal-content {
+    max-width: 90%;
+    max-height: 90vh;
+    object-fit: contain;
+}
+
+.close-button {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Стили пагинации */
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+    padding: 0 10px;
+}
+
+
+.page-button {
+    background: none;
+    border: 2px solid #F29F05;
+    color: #F29F05;
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-family: 'Gothic №60';
+    font-size: 1rem;
+    min-width: 40px;
+}
+
+.page-button.active {
+    background: #F29F05;
+    color: #242424;
+}
+
+.page-button:hover {
+    background: #F29F05;
+    color: #242424;
+    transform: translateY(-2px);
+}
+
+.pagination button {
+    background: none;
+    border: 2px solid #fcf6ed;
+    color: #fcf6ed;
+    padding: 0.5rem 1.5rem;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-family: 'Gothic №60';
+    font-size: 1rem;
+}
+
+.pagination button:hover {
+    background: #fcf6ed;
+    color: #242424;
+    transform: translateY(-2px);
+}
+
+
+.pagination button.active {
+    background: none;
+    border: 2px solid #F29F05;
+    color: #F29F05;
+    padding: 0.5rem 1.5rem;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-family: 'Gothic №60';
+    font-size: 1rem;
+}
+
+
+/* Медиа-запросы для адаптивности */
+@media (max-width: 1024px) {
+    .catalog-container {
+        max-width: 100%;
+        padding: 0 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    .catalog-container {
+        padding: 0 10px;
+        min-height: calc(100vh - 250px);
+        margin-top: 100px;
+    }
+
+    .catalog-container h1 {
+        margin-bottom: 20px;
+    }
+
+    .images-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 15px;
+    }
+
+    .navigation-container {
+        flex-direction: column;
+        width: 100%;
+        gap: 15px;
+    }
+
+    .nav-buttons {
+        width: 100%;
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+
+    .page-button {
+        padding: 8px 16px;
+        font-size: 0.9rem;
+        min-width: 36px;
+    }
+}
+
+@media (max-width: 480px) {
+    .images-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 10px;
+    }
+
+    .nav-buttons {
+        padding: 8px 16px;
+        font-size: 0.85rem;
+    }
+
+    .page-button {
+        padding: 6px 12px;
+        font-size: 0.85rem;
+        min-width: 32px;
+    }
+
+    .close-button {
+        top: 10px;
+        right: 25px;
+        font-size: 30px;
+    }
+
+    .catalog-container {
+        padding: 0 10px;
+        min-height: calc(100vh - 300px);
+        margin-top: 120px;
+    }
+
+    .pagination {
+        gap: 8px;
+        padding: 0 5px;
+    }
+}
+
+
+
