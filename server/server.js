@@ -6,8 +6,14 @@ require('dotenv').config();
 const app = express();
 const productsRouter = require('./routes/products');
 
+// CORS configuration
+app.use(cors({
+  origin: '*', // В продакшене замените на конкретный домен
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+}));
+
 // Middleware
-app.use(cors());
 app.use(express.json());
 
 // Serve static files from the root directory
@@ -30,5 +36,5 @@ app.use((err, req, res, next) => {
 const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => {
-  console.log(`Сервер запущен на порте ${PORT}`);
+  console.log(`Сервер запущен на порту ${PORT}`);
 }); 
