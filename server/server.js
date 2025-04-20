@@ -1,5 +1,6 @@
 const express = require('express');
 const cors = require('cors');
+const path = require('path');
 require('dotenv').config();
 
 const app = express();
@@ -9,8 +10,16 @@ const productsRouter = require('./routes/products');
 app.use(cors());
 app.use(express.json());
 
-// Routes
+// Serve static files from the root directory
+app.use(express.static(path.join(__dirname, '..')));
+
+// API Routes
 app.use('/api/products', productsRouter);
+
+// Serve index.html for the root route
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, '..', 'index.html'));
+});
 
 // Error handling middleware
 app.use((err, req, res, next) => {
